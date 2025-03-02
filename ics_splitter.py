@@ -28,7 +28,7 @@ if __name__ == '__main__':
         print('ERROR: output file already exists! As a safety check, this script will not overwrite an ICS file')
         exit()
 
-    infh = open(in_fname, 'r')
+    infh = open(in_fname, 'r', encoding='utf-8')
 
     # parsing constants
     BEGIN_CALENDAR = 'BEGIN:VCALENDAR'
@@ -46,7 +46,7 @@ if __name__ == '__main__':
     event_count = 0
     out_event_count = 0
 
-    with open(out_fname, 'w') as outfh:
+    with open(out_fname, 'w', encoding='utf-8')) as outfh:
         for line in infh:
             if in_preamble and line.startswith(BEGIN_EVENT):
                 in_preamble = False
